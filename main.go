@@ -20,7 +20,3 @@ func getCookie() map[string]string {
 
 	return cookieMap
 }
-
-// func getRequest() *http.Request {
-// 	return &http.Request{}
-// }
