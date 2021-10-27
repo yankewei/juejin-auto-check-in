@@ -1,12 +1,29 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"strings"
 )
 
 func main() {
-	fmt.Println(getCookie())
+	url := "https://open.feishu.cn/open-apis/bot/v2/hook/b858da68-00db-4629-aca7-767cc37b22fc"
+
+	var jsonStr = []byte(`{"msg_type":"text","content":{"text":"Test"}}`)
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	body, _ := ioutil.ReadAll(resp.Body)
+	fmt.Println("response Body:", string(body))
 }
 
 func getCookie() map[string]string {
@@ -17,6 +34,5 @@ func getCookie() map[string]string {
 		index := strings.Index(strings.Trim(v, " "), "=")
 		cookieMap[v[0:index]] = v[index+1:]
 	}
-
 	return cookieMap
 }
