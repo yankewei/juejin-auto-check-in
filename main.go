@@ -14,7 +14,7 @@ func main() {
 
 
 
-	var str = []byte(`{"msg_type":"text", "content":"{"text":"你中奖了"}"}`
+	var str = []byte(`{"msg_type":"text", "content":"{"text":"你中奖了"}"}`)
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(str))
 	// for k, v := range getCookie() {
 	// 	req.AddCookie(&http.Cookie{Name: k, Value: v})
