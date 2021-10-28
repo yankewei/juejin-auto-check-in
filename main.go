@@ -42,7 +42,3 @@ func getCookie() map[string]string {
 	}
 	return cookieMap
 }
-
-func checkIn() {
-	url := 
-}
