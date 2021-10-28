@@ -7,16 +7,18 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"fmt"
 )
 
 func main() {
-	// sendAlert(checkIn())
+	sendAlert(checkIn())
 	sendAlert(lottery())
 }
 
 func checkIn() string {
 	url := "https://api.juejin.cn/growth_api/v1/check_in"
 	response := sendRequest(url)
+	fmt.Println(string(response))
 
 	type checkInRes struct {
 		ErrorNo int    `json:"err_no"`
@@ -31,7 +33,8 @@ func checkIn() string {
 func lottery() string {
 	url := "https://api.juejin.cn/growth_api/v1/lottery/draw"
 	response := sendRequest(url)
-
+	fmt.Println(string(response))
+	
 	type lotteryRes struct {
 		ErrorNo int    `json:"err_no"`
 		ErrMsg  string `json:"err_msg"`
