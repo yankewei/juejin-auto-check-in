@@ -2,7 +2,7 @@ name: juejin
 
 on:
   schedule:
-    - cron: '0 17 * * *'
+    - cron: '30 1 * * *'
 
 jobs:
 
@@ -17,5 +17,7 @@ jobs:
         go-version: 1.17
       
     - name: RUN
+      env:
+        FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
       run: go run main.go
       
