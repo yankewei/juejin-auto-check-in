@@ -79,7 +79,7 @@ func getCookie() map[string]string {
 }
 
 func sendAlert(send_text string) {
-	url := os.Getenv("FEISHU_WEBHOOk")
+	url := os.Getenv("FEISHU_WEBHOOK")
 	type content struct {
 		Text string `json:"text"`
 	}
