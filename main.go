@@ -32,20 +32,15 @@ func lottery() string {
 	url := "https://api.juejin.cn/growth_api/v1/lottery/draw"
 	response := sendRequest(url)
 
-	type data struct {
-		Id   int    `json:"id"`
-		Name string `json:"lottery_name"`
-	}
-
 	type lotteryRes struct {
 		ErrorNo int    `json:"err_no"`
 		ErrMsg  string `json:"err_msg"`
-		Data    *data  `json:"data"`
+		Data    string `json:"data"`
 	}
 
 	result := &lotteryRes{}
 	json.Unmarshal(response, result)
-	return result.Data.Name
+	return result.Data
 }
 
 func sendRequest(url string) []byte {
