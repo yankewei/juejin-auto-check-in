@@ -20,5 +20,6 @@ jobs:
     - name: RUN
       env:
         FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+        COOKIE: ${{ secrets.COOKIE }}
       run: go run main.go
       
