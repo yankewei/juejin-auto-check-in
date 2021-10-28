@@ -11,8 +11,11 @@ import (
 
 func main() {
 	url := os.Getenv("FEISHU_WEBHOOK")
-	var str = "{'msg_type':'text', 'content': {'text': '新更新提醒'}}"
-	req, _ := http.NewRequest("POST", url, bytes.NewBufferString(str))
+
+
+
+	var str = []byte(`{"msg_type":"text", "content":"{"text":"你中奖了"}"}`
+	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(str))
 	// for k, v := range getCookie() {
 	// 	req.AddCookie(&http.Cookie{Name: k, Value: v})
 	// }
@@ -38,4 +41,8 @@ func getCookie() map[string]string {
 		cookieMap[v[0:index]] = v[index+1:]
 	}
 	return cookieMap
+}
+
+func checkIn() {
+	url := 
 }
