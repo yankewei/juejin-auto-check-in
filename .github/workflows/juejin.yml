@@ -19,6 +19,6 @@ jobs:
       
     - name: RUN
       env:
-        FEISHU_WEBHOOK: web
+        FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
       run: go run main.go
       
