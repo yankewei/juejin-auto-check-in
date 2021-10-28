@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	fmt.Println(os.Getenv("FEISHU_WEBHOOK"))
 	url := "https://open.feishu.cn/open-apis/bot/v2/hook/b858da68-00db-4629-aca7-767cc37b22fc"
 
 	var jsonStr = []byte(`{"msg_type":"text","content":{"text":"Test"}}`)
