@@ -35,6 +35,10 @@ func lottery() string {
 	response := sendRequest(url)
 	fmt.Println(string(response))
 	
+	type data struct {
+		Name string `json:"lottery_name"`
+	}
+	
 	type lotteryRes struct {
 		ErrorNo int    `json:"err_no"`
 		ErrMsg  string `json:"err_msg"`
@@ -43,7 +47,7 @@ func lottery() string {
 
 	result := &lotteryRes{}
 	json.Unmarshal(response, result)
-	return result.Data
+	return result.Data.Name
 }
 
 func sendRequest(url string) []byte {
