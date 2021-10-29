@@ -18,36 +18,13 @@ func main() {
 func checkIn() string {
 	url := "https://api.juejin.cn/growth_api/v1/check_in"
 	response := sendRequest(url)
-	fmt.Println(string(response))
-
-	type checkInRes struct {
-		ErrorNo int    `json:"err_no"`
-		ErrMsg  string `json:"err_msg"`
-	}
-
-	result := &checkInRes{}
-	json.Unmarshal(response, result)
-	return result.ErrMsg
+	return string(response)
 }
 
 func lottery() string {
 	url := "https://api.juejin.cn/growth_api/v1/lottery/draw"
 	response := sendRequest(url)
-	fmt.Println(string(response))
-	
-	type data struct {
-		Name string `json:"lottery_name"`
-	}
-	
-	type lotteryRes struct {
-		ErrorNo int    `json:"err_no"`
-		ErrMsg  string `json:"err_msg"`
-		Data    string `json:"data"`
-	}
-
-	result := &lotteryRes{}
-	json.Unmarshal(response, result)
-	return result.Data.Name
+	return string(response)
 }
 
 func sendRequest(url string) []byte {
