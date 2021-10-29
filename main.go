@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 	"strings"
-	"fmt"
 )
 
 func main() {
