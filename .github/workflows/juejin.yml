@@ -2,8 +2,7 @@ name: juejin
 
 on:
   schedule:
-    - cron: '30 1 * * *'
-  workflow_dispatch:  
+    - cron: '0 2 * * *'
 
 jobs:
 
